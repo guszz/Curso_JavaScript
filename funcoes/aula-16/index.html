@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Calcular IMC</title>
+  <script>
+
+    (function () {
+
+      function calcularIMC(peso, altura) {
+
+        return peso / (altura * altura);
+      }
+
+      function cassificaIMC() {
+
+        if (imc <= 16.9) {
+          return 'Muito abaixo do peso!';
+        } else if (imc <= 18.4) {
+          return 'Abaixo do peso!';
+        } else if (imc <= 24.9) {
+          return 'Peso nomal!';
+        } else if (imc <= 29.9) {
+          return 'Acima do peso!';
+        } else if (imc <= 34.9) {
+          return 'Você está com obesidade grau I!';
+        } else if (imc <= 40) {
+          return 'Você está com obesidade grau II!';
+        } else if (imc > 40) {
+          return 'Você está com obesidade grau III!';
+        }
+      }
+
+      var peso = 109;
+      var altura = 1.75;
+
+      var imc = calcularIMC(peso, altura);
+
+      var classificacao = cassificaIMC(imc);
+
+      console.log('Seu IMC é:', imc);
+      console.log('Classificação IMC:', classificacao);
+
+    })()
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
