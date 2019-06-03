@@ -38,7 +38,6 @@
             <td class="aluno-n4">7.5</td>
             <td class="aluno-m"></td>
           </tr>
-
           <tr class="aluno">
             <td class="aluno-nome">Rey</td>
             <td class="aluno-n1">5</td>
@@ -47,7 +46,6 @@
             <td class="aluno-n4">7.5</td>
             <td class="aluno-m"></td>
           </tr>
-
           <tr class="aluno">
             <td class="aluno-nome">Jessilda</td>
             <td class="aluno-n1">8</td>
@@ -56,7 +54,6 @@
             <td class="aluno-n4">7.5</td>
             <td class="aluno-m"></td>
           </tr>
-
           <tr class="aluno">
             <td class="aluno-nome">Lindóia</td>
             <td class="aluno-n1">6.5</td>
@@ -97,14 +94,9 @@
         var tds = linhaAluno.querySelectorAll('td');
         console.log(tds);
 
-        var notas = recuperaInfoColunas();
+        var notas = recuperaInfoColunas(tds);
 
-        n1 = pegaNota(tds[1]);
-        n2 = pegaNota(tds[2]);
-        n3 = pegaNota(tds[3]);
-        n4 = pegaNota(tds[4]);
-
-        media = calcularMedia(n1, n2, n3, n4);
+        var media = calcularMedia.apply(this, notas);
 
         linhaAluno.querySelector('.aluno-m').textContent = media;
         x++;
@@ -115,18 +107,12 @@
         var arr = [];
         while (tds[x]) {
           if (!isNaN(tds[x].textContent) && tds[x].textContent !== '') {
-            arr.push(tds[x].textContent);
+            arr.push(parseFloat(tds[x].textContent));
           }
 
           x++;
         }
-        console.log('-----------------------');
-        console.log(arr);
         return arr;
-      }
-
-      function pegaNota(td) {
-        return parseFloat(td.textContent);
       }
     })()
   </script>
